@@ -14,17 +14,17 @@
   <div class="paper-grain" aria-hidden="true"></div>
 
   <header class="hero">
-    <div class="hero-note">
+    <div class="hero-note sewn patch-cream">
       <p class="label">Our Adventure Book</p>
       <h1>Nuestra Historia</h1>
       <p class="subtitle">Hecho a mano, con recuerdos que valen oro.</p>
 
       <div class="stats">
-        <div class="stat">
+        <div class="stat sewn-mini">
           <span id="daysTogether">0</span>
           <small>dias juntos</small>
         </div>
-        <div class="stat">
+        <div class="stat sewn-mini">
           <span id="monthsTogether">0</span>
           <small>meses juntos</small>
         </div>
@@ -38,76 +38,65 @@
   </header>
 
   <main class="album" id="timeline">
-    <section class="timeline-line" aria-hidden="true"></section>
+    <!-- La línea SOLO cubre recuerdos, no sección música -->
+    <section class="timeline" aria-label="Linea de recuerdos">
+      <div class="timeline-line" aria-hidden="true"></div>
 
-    <!-- RECUERDO 1 -->
-    <article class="moment">
-      <div class="pin"></div>
-      <div class="card torn">
-        <p class="date-tag">14 Feb 2024</p>
-        <h2>El comienzo</h2>
-        <p>El dia en que empezó este album.</p>
+      <article class="moment">
+        <div class="pin"></div>
+        <div class="card torn sewn patch-blue">
+          <p class="date-tag">14 Feb 2024</p>
+          <h2>El comienzo</h2>
+          <p>El dia en que empezó este album.</p>
 
-        <figure class="photo-wrap tilt-left">
-          <img src="images/momento1.jpg" alt="Primer recuerdo" loading="lazy" />
-          <figcaption>Primer recuerdo</figcaption>
-          <span class="tape tape-top-left" aria-hidden="true"></span>
-          <span class="tape tape-top-right" aria-hidden="true"></span>
-        </figure>
-      </div>
-    </article>
+          <figure class="photo-wrap tilt-left">
+            <img src="images/momento1.jpg" alt="Primer recuerdo" loading="lazy" />
+            <figcaption>Primer recuerdo</figcaption>
+            <span class="tape tape-top-left" aria-hidden="true"></span>
+            <span class="tape tape-top-right" aria-hidden="true"></span>
+          </figure>
+        </div>
+      </article>
 
-    <!-- RECUERDO 2 -->
-    <article class="moment">
-      <div class="pin"></div>
-      <div class="card torn">
-        <p class="date-tag">03 Jun 2024</p>
-        <h2>Nuestro primer viaje</h2>
-        <p>Fotos, risas y canciones que quedaron marcadas.</p>
+      <article class="moment">
+        <div class="pin"></div>
+        <div class="card torn sewn patch-rose">
+          <p class="date-tag">03 Jun 2024</p>
+          <h2>Nuestro primer viaje</h2>
+          <p>Fotos, risas y canciones que quedaron marcadas.</p>
 
-        <figure class="photo-wrap tilt-right">
-          <img src="images/momento2.jpg" alt="Viaje juntos" loading="lazy" />
-          <figcaption>Viaje</figcaption>
-          <span class="tape tape-top-center" aria-hidden="true"></span>
-        </figure>
-      </div>
-    </article>
+          <figure class="photo-wrap tilt-right">
+            <img src="images/momento2.jpg" alt="Viaje juntos" loading="lazy" />
+            <figcaption>Viaje</figcaption>
+            <span class="tape tape-top-center" aria-hidden="true"></span>
+          </figure>
+        </div>
+      </article>
 
-    <!-- RECUERDO 3 -->
-    <article class="moment">
-      <div class="pin"></div>
-      <div class="card torn">
-        <p class="date-tag">20 Oct 2024</p>
-        <h2>Promesa</h2>
-        <p>Elegirnos cada dia y seguir construyendo historia.</p>
+      <article class="moment">
+        <div class="pin"></div>
+        <div class="card torn sewn patch-sand">
+          <p class="date-tag">20 Oct 2024</p>
+          <h2>Promesa</h2>
+          <p>Elegirnos cada dia y seguir construyendo historia.</p>
 
-        <figure class="photo-wrap tilt-left">
-          <img src="images/momento3.jpg" alt="Promesa" loading="lazy" />
-          <figcaption>Promesa</figcaption>
-          <span class="tape tape-top-left" aria-hidden="true"></span>
-          <span class="tape tape-bottom-right" aria-hidden="true"></span>
-        </figure>
-      </div>
-    </article>
+          <figure class="photo-wrap tilt-left">
+            <img src="images/momento3.jpg" alt="Promesa" loading="lazy" />
+            <figcaption>Promesa</figcaption>
+            <span class="tape tape-top-left" aria-hidden="true"></span>
+            <span class="tape tape-bottom-right" aria-hidden="true"></span>
+          </figure>
+        </div>
+      </article>
+    </section>
 
-    <section class="music-board">
+    <!-- Música sin Spotify -->
+    <section class="music-board sewn patch-cream">
       <h3>Nuestra musica</h3>
-      <p class="music-sub">Puedes usar Spotify, YouTube y pista MP3 local.</p>
+      <p class="music-sub">YouTube embebido + pista MP3 local.</p>
 
       <div class="embed-grid">
-        <div class="embed-card">
-          <h4>Spotify Playlist</h4>
-          <iframe
-            style="border-radius:12px"
-            src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator"
-            width="100%" height="152" frameBorder="0"
-            allowfullscreen=""
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy">
-          </iframe>
-        </div>
-
-        <div class="embed-card">
+        <div class="embed-card sewn-mini patch-paper">
           <h4>YouTube</h4>
           <iframe
             width="100%"
