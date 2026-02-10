@@ -2,25 +2,27 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Nuestra Historia</title>
-  <meta name="description" content="Timeline de nuestros momentos más importantes." />
+  <meta name="description" content="Nuestro album de recuerdos en formato timeline." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="paper-grain" aria-hidden="true"></div>
+
   <header class="hero">
-    <div class="hero-card">
-      <p class="kicker">Nuestro álbum</p>
+    <div class="hero-note">
+      <p class="label">Our Adventure Book</p>
       <h1>Nuestra Historia</h1>
-      <p class="subtitle">Un timeline de los momentos que nos cambiaron la vida.</p>
+      <p class="subtitle">Hecho a mano, con recuerdos que valen oro.</p>
 
       <div class="stats">
         <div class="stat">
           <span id="daysTogether">0</span>
-          <small>días juntos</small>
+          <small>dias juntos</small>
         </div>
         <div class="stat">
           <span id="monthsTogether">0</span>
@@ -30,49 +32,70 @@
 
       <div class="hero-actions">
         <button id="musicBtn" class="btn">Reproducir musica</button>
-        <a href="#timeline" class="btn btn-outline">Ver timeline</a>
+        <a href="#timeline" class="btn btn-outline">Ver recuerdos</a>
       </div>
     </div>
   </header>
 
-  <main class="container">
-    <section id="timeline" class="timeline">
-      <article class="event">
-        <div class="dot"></div>
-        <div class="card">
-          <p class="date">14 Feb 2024</p>
-          <h2>El comienzo</h2>
-          <p>Ese día empezó todo. El primer capítulo de nuestra historia.</p>
-          <img src="images/momento1.jpg" alt="Primer momento" />
-        </div>
-      </article>
+  <main class="album" id="timeline">
+    <section class="timeline-line" aria-hidden="true"></section>
 
-      <article class="event">
-        <div class="dot"></div>
-        <div class="card">
-          <p class="date">03 Jun 2024</p>
-          <h2>Nuestro primer viaje</h2>
-          <p>Risas, fotos y una playlist que quedó para siempre.</p>
-          <img src="images/momento2.jpg" alt="Primer viaje" />
-        </div>
-      </article>
+    <!-- RECUERDO 1 -->
+    <article class="moment">
+      <div class="pin"></div>
+      <div class="card torn">
+        <p class="date-tag">14 Feb 2024</p>
+        <h2>El comienzo</h2>
+        <p>El dia en que empezó este album.</p>
 
-      <article class="event">
-        <div class="dot"></div>
-        <div class="card">
-          <p class="date">20 Oct 2024</p>
-          <h2>Promesa</h2>
-          <p>Elegirnos cada día, incluso en los días difíciles.</p>
-          <img src="images/momento3.jpg" alt="Promesa" />
-        </div>
-      </article>
-    </section>
+        <figure class="photo-wrap tilt-left">
+          <img src="images/momento1.jpg" alt="Primer recuerdo" loading="lazy" />
+          <figcaption>Primer recuerdo</figcaption>
+          <span class="tape tape-top-left" aria-hidden="true"></span>
+          <span class="tape tape-top-right" aria-hidden="true"></span>
+        </figure>
+      </div>
+    </article>
 
-    <section class="music-section">
+    <!-- RECUERDO 2 -->
+    <article class="moment">
+      <div class="pin"></div>
+      <div class="card torn">
+        <p class="date-tag">03 Jun 2024</p>
+        <h2>Nuestro primer viaje</h2>
+        <p>Fotos, risas y canciones que quedaron marcadas.</p>
+
+        <figure class="photo-wrap tilt-right">
+          <img src="images/momento2.jpg" alt="Viaje juntos" loading="lazy" />
+          <figcaption>Viaje</figcaption>
+          <span class="tape tape-top-center" aria-hidden="true"></span>
+        </figure>
+      </div>
+    </article>
+
+    <!-- RECUERDO 3 -->
+    <article class="moment">
+      <div class="pin"></div>
+      <div class="card torn">
+        <p class="date-tag">20 Oct 2024</p>
+        <h2>Promesa</h2>
+        <p>Elegirnos cada dia y seguir construyendo historia.</p>
+
+        <figure class="photo-wrap tilt-left">
+          <img src="images/momento3.jpg" alt="Promesa" loading="lazy" />
+          <figcaption>Promesa</figcaption>
+          <span class="tape tape-top-left" aria-hidden="true"></span>
+          <span class="tape tape-bottom-right" aria-hidden="true"></span>
+        </figure>
+      </div>
+    </article>
+
+    <section class="music-board">
       <h3>Nuestra musica</h3>
+      <p class="music-sub">Puedes usar Spotify, YouTube y pista MP3 local.</p>
 
-      <div class="music-grid">
-        <div class="music-card">
+      <div class="embed-grid">
+        <div class="embed-card">
           <h4>Spotify Playlist</h4>
           <iframe
             style="border-radius:12px"
@@ -84,32 +107,27 @@
           </iframe>
         </div>
 
-        <div class="music-card">
+        <div class="embed-card">
           <h4>YouTube</h4>
           <iframe
             width="100%"
-            height="215"
+            height="210"
             src="https://www.youtube.com/embed/VIDEO_ID"
-            title="YouTube video player"
+            title="YouTube player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen>
           </iframe>
         </div>
       </div>
-
-      <p class="note">
-        Nota: la reproducción automática con sonido suele bloquearse por el navegador.
-        Por eso hay botón de música manual.
-      </p>
     </section>
   </main>
 
   <footer class="footer">
-    <p>Hecho para nuestro diario</p>
+    <p>Hecho a mano para nuestro diario</p>
   </footer>
 
-  <audio id="bgMusic" loop>
+  <audio id="bgMusic" loop preload="none">
     <source src="music/our-song.mp3" type="audio/mpeg" />
   </audio>
 
