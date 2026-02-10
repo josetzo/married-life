@@ -1,12 +1,15 @@
-const relationshipStart = new Date("2024-02-14");
+// Ajusta esta fecha a la real (YYYY-MM-DD)
+const relationshipStart = new Date("2024-10-05");
 
 const daysEl = document.getElementById("daysTogether");
 const monthsEl = document.getElementById("monthsTogether");
+const musicBtn = document.getElementById("musicBtn");
+const bgMusic = document.getElementById("bgMusic");
 
 function updateCounters() {
   const today = new Date();
-  const diffMs = today - relationshipStart;
-  const days = Math.max(0, Math.floor(diffMs / (1000 * 60 * 60 * 24)));
+  const diff = today - relationshipStart;
+  const days = Math.max(0, Math.floor(diff / (1000 * 60 * 60 * 24)));
 
   const months =
     (today.getFullYear() - relationshipStart.getFullYear()) * 12 +
@@ -16,25 +19,22 @@ function updateCounters() {
   daysEl.textContent = days.toLocaleString("es-CL");
   monthsEl.textContent = Math.max(0, months).toLocaleString("es-CL");
 }
-
 updateCounters();
 
-const audio = document.getElementById("bgMusic");
-const musicBtn = document.getElementById("musicBtn");
-let playing = false;
-
+// Boton musica (autoplay suele estar bloqueado por navegador)
+let isPlaying = false;
 musicBtn.addEventListener("click", async () => {
   try {
-    if (!playing) {
-      await audio.play();
-      playing = true;
+    if (!isPlaying) {
+      await bgMusic.play();
+      isPlaying = true;
       musicBtn.textContent = "Pausar musica";
     } else {
-      audio.pause();
-      playing = false;
+      bgMusic.pause();
+      isPlaying = false;
       musicBtn.textContent = "Reproducir musica";
     }
-  } catch (err) {
+  } catch {
     alert("El navegador bloqueó la reproducción automática. Presiona nuevamente.");
   }
 });
