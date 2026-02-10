@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nuestro Diario 💖</title>
+  <meta name="description" content="Un diario de vida para nosotros." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <h1>Nuestro Diario 💕</h1>
+    <p>Un lugar para guardar nuestros momentos.</p>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Foto del día</h2>
+      <img id="mainPhoto" class="photo" src="images/foto1.jpg" alt="Nuestro recuerdo" />
+      <div class="actions">
+        <button id="nextPhotoBtn" type="button">Cambiar foto</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Mensaje</h2>
+      <p>
+        Gracias por cada risa, cada abrazo y cada día contigo.
+        Este diario irá creciendo con nuestra historia.
+      </p>
+      <div class="actions">
+        <button id="surpriseBtn" type="button">Mensaje sorpresa</button>
+      </div>
+      <p id="secretMsg" class="hidden">Te amo muchísimo. Eres mi persona favorita 💖</p>
+    </section>
+
+    <section class="card">
+      <h2>Entradas del diario</h2>
+      <ul class="post-list">
+        <li><a href="posts/2026-02-14.html">14 Feb 2026 — San Valentín</a></li>
+        <li><a href="posts/2026-02-01.html">01 Feb 2026 — Nuestro mes</a></li>
+      </ul>
+      <p class="tip">
+        Consejo: crea la carpeta <code>posts/</code> y agrega archivos HTML por fecha.
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>Hecho con cariño para nosotros ✨</small>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
