@@ -1,5 +1,5 @@
-// Ajusta esta fecha a la real (YYYY-MM-DD)
-const relationshipStart = new Date("2024-10-05");
+// Ajusta fecha real
+const relationshipStart = new Date("2024-02-14");
 
 const daysEl = document.getElementById("daysTogether");
 const monthsEl = document.getElementById("monthsTogether");
@@ -21,7 +21,7 @@ function updateCounters() {
 }
 updateCounters();
 
-// Boton musica (autoplay suele estar bloqueado por navegador)
+// MP3 local
 let isPlaying = false;
 musicBtn.addEventListener("click", async () => {
   try {
