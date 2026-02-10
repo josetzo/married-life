@@ -3,53 +3,116 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nuestro Diario 💖</title>
-  <meta name="description" content="Un diario de vida para nosotros." />
+  <title>Nuestra Historia</title>
+  <meta name="description" content="Timeline de nuestros momentos más importantes." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="hero">
-    <h1>Nuestro Diario 💕</h1>
-    <p>Un lugar para guardar nuestros momentos.</p>
+    <div class="hero-card">
+      <p class="kicker">Nuestro álbum</p>
+      <h1>Nuestra Historia</h1>
+      <p class="subtitle">Un timeline de los momentos que nos cambiaron la vida.</p>
+
+      <div class="stats">
+        <div class="stat">
+          <span id="daysTogether">0</span>
+          <small>días juntos</small>
+        </div>
+        <div class="stat">
+          <span id="monthsTogether">0</span>
+          <small>meses juntos</small>
+        </div>
+      </div>
+
+      <div class="hero-actions">
+        <button id="musicBtn" class="btn">Reproducir musica</button>
+        <a href="#timeline" class="btn btn-outline">Ver timeline</a>
+      </div>
+    </div>
   </header>
 
   <main class="container">
-    <section class="card">
-      <h2>Foto del día</h2>
-      <img id="mainPhoto" class="photo" src="images/foto1.jpg" alt="Nuestro recuerdo" />
-      <div class="actions">
-        <button id="nextPhotoBtn" type="button">Cambiar foto</button>
-      </div>
+    <section id="timeline" class="timeline">
+      <article class="event">
+        <div class="dot"></div>
+        <div class="card">
+          <p class="date">14 Feb 2024</p>
+          <h2>El comienzo</h2>
+          <p>Ese día empezó todo. El primer capítulo de nuestra historia.</p>
+          <img src="images/momento1.jpg" alt="Primer momento" />
+        </div>
+      </article>
+
+      <article class="event">
+        <div class="dot"></div>
+        <div class="card">
+          <p class="date">03 Jun 2024</p>
+          <h2>Nuestro primer viaje</h2>
+          <p>Risas, fotos y una playlist que quedó para siempre.</p>
+          <img src="images/momento2.jpg" alt="Primer viaje" />
+        </div>
+      </article>
+
+      <article class="event">
+        <div class="dot"></div>
+        <div class="card">
+          <p class="date">20 Oct 2024</p>
+          <h2>Promesa</h2>
+          <p>Elegirnos cada día, incluso en los días difíciles.</p>
+          <img src="images/momento3.jpg" alt="Promesa" />
+        </div>
+      </article>
     </section>
 
-    <section class="card">
-      <h2>Mensaje</h2>
-      <p>
-        Gracias por cada risa, cada abrazo y cada día contigo.
-        Este diario irá creciendo con nuestra historia.
-      </p>
-      <div class="actions">
-        <button id="surpriseBtn" type="button">Mensaje sorpresa</button>
-      </div>
-      <p id="secretMsg" class="hidden">Te amo muchísimo. Eres mi persona favorita 💖</p>
-    </section>
+    <section class="music-section">
+      <h3>Nuestra musica</h3>
 
-    <section class="card">
-      <h2>Entradas del diario</h2>
-      <ul class="post-list">
-        <li><a href="posts/2026-02-14.html">14 Feb 2026 — San Valentín</a></li>
-        <li><a href="posts/2026-02-01.html">01 Feb 2026 — Nuestro mes</a></li>
-      </ul>
-      <p class="tip">
-        Consejo: crea la carpeta <code>posts/</code> y agrega archivos HTML por fecha.
+      <div class="music-grid">
+        <div class="music-card">
+          <h4>Spotify Playlist</h4>
+          <iframe
+            style="border-radius:12px"
+            src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator"
+            width="100%" height="152" frameBorder="0"
+            allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy">
+          </iframe>
+        </div>
+
+        <div class="music-card">
+          <h4>YouTube</h4>
+          <iframe
+            width="100%"
+            height="215"
+            src="https://www.youtube.com/embed/VIDEO_ID"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
+      <p class="note">
+        Nota: la reproducción automática con sonido suele bloquearse por el navegador.
+        Por eso hay botón de música manual.
       </p>
     </section>
   </main>
 
   <footer class="footer">
-    <small>Hecho con cariño para nosotros ✨</small>
+    <p>Hecho para nuestro diario</p>
   </footer>
 
-  <script src="script.js" defer></script>
+  <audio id="bgMusic" loop>
+    <source src="music/our-song.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script src="script.js"></script>
 </body>
 </html>
