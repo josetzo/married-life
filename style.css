@@ -1,92 +1,127 @@
-/* ==============================
-   RESTORE HERO STATS + BUTTONS
-   handmade / sewn / glued style
-   ============================== */
-
-/* Hero note keeps scrapbook look but stable layout */
-.hero-note{
-  display:block;
-  max-width:760px;
+:root{
+  --bg:#f6e7cf;
+  --paper:#fffaf0;
+  --ink:#2a241e;
+  --brown:#8b6b4a;
+  --red:#b84037;
+  --blue:#3f6ea8;
+  --shadow:0 6px 18px rgba(0,0,0,.14);
+  --radius:14px;
 }
 
-/* stitched stats row restored */
+/* reset */
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:"Nunito", system-ui, sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(1000px 600px at 50% -220px, #fff4df, transparent 60%),
+    var(--bg);
+  line-height:1.45;
+  overflow-x:hidden;
+}
+
+/* paper texture */
+.paper-grain{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  opacity:.22;
+  background-image:
+    radial-gradient(rgba(0,0,0,.06) .6px, transparent .6px),
+    radial-gradient(rgba(255,255,255,.28) .8px, transparent .8px);
+  background-size:3px 3px, 5px 5px;
+  mix-blend-mode:multiply;
+}
+
+/* palette patches */
+.patch-cream{background:#fff8ea}
+.patch-blue{background:#edf4ff}
+.patch-rose{background:#fff1f0}
+.patch-sand{background:#fdf1dd}
+.patch-paper{background:#fffdf8}
+
+/* stitched style */
+.sewn{position:relative}
+.sewn::after{
+  content:"";
+  position:absolute;
+  inset:8px;
+  border:1.5px dashed rgba(118,92,63,.35);
+  border-radius:10px;
+  pointer-events:none;
+}
+.sewn-mini{position:relative}
+.sewn-mini::after{
+  content:"";
+  position:absolute;
+  inset:4px;
+  border:1px dashed rgba(118,92,63,.30);
+  border-radius:8px;
+  pointer-events:none;
+}
+
+/* hero */
+.hero{
+  position:relative;
+  z-index:1;
+  padding:18px 14px 10px;
+}
+.hero-note{
+  max-width:760px;
+  margin:0 auto;
+  padding:18px;
+  border:1.5px solid #e6d4b4;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  transform:rotate(-.5deg);
+}
+.label{
+  margin:0 0 6px;
+  font-family:"Patrick Hand", cursive;
+  color:var(--brown);
+  font-size:1.05rem;
+}
+h1{
+  margin:.1rem 0 .3rem;
+  font-family:"Patrick Hand", cursive;
+  font-size:2.1rem;
+}
+.subtitle{margin:0;color:#4f4337}
+
+/* stats restored */
 .stats{
   margin:14px 0 12px;
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:10px;
 }
-
 .stat{
-  position:relative;
   padding:10px 12px;
+  border:1px solid rgba(149,118,80,.25);
   border-radius:12px;
   text-align:center;
-  box-shadow: var(--shadow);
-  border:1.5px dashed rgba(80,60,40,0.25);
-  transform-origin:center;
+  box-shadow:0 3px 10px rgba(0,0,0,.10);
 }
-
-/* each stat as a different patch */
-.stats .stat:nth-child(1){
-  background:#eef6ff;               /* blue patch */
-  transform:rotate(-1.2deg);
-}
-.stats .stat:nth-child(2){
-  background:#fff0f3;               /* rose patch */
-  transform:rotate(1.1deg);
-}
-
-/* inner stitch */
-.stat::after{
-  content:"";
-  position:absolute;
-  inset:5px;
-  border:1px dashed rgba(110,85,55,0.25);
-  border-radius:9px;
-  pointer-events:none;
-}
-
-/* tiny glue tape on stats */
-.stat::before{
-  content:"";
-  position:absolute;
-  width:44px;
-  height:14px;
-  top:-8px;
-  left:10px;
-  transform:rotate(-9deg);
-  background:rgba(255,255,255,.46);
-  border:1px solid rgba(140,120,90,.2);
-  box-shadow:0 1px 1px rgba(0,0,0,.06);
-}
-
-/* typography restored */
+.stat:nth-child(1){transform:rotate(-1deg)}
+.stat:nth-child(2){transform:rotate(1deg)}
 .stat span{
   display:block;
   font-weight:800;
   font-size:1.45rem;
-  line-height:1.05;
+  line-height:1.1;
   color:var(--red);
 }
-.stat small{
-  display:block;
-  margin-top:4px;
-  font-size:.86rem;
-  color:#5f513f;
-  letter-spacing:.2px;
-}
+.stat small{font-size:.86rem;color:#5f513f}
 
-/* CTA buttons row restored */
+/* buttons restored */
 .hero-actions{
-  margin-top:6px;
   display:flex;
   gap:10px;
   flex-wrap:wrap;
-  align-items:center;
 }
-
-/* base handmade button */
 .btn{
   position:relative;
   border:none;
@@ -99,75 +134,181 @@
   display:inline-flex;
   align-items:center;
   justify-content:center;
+  box-shadow:0 3px 0 rgba(0,0,0,.15), 0 6px 12px rgba(0,0,0,.12);
   transition:transform .15s ease, filter .15s ease;
-  box-shadow:0 3px 0 rgba(0,0,0,.16), 0 6px 12px rgba(0,0,0,.12);
 }
-
-/* primary = play music */
-#musicBtn.btn{
-  background:#3f6ea8;
+.btn-primary{
+  background:var(--blue);
   color:#fff;
-  transform:rotate(-1.5deg);
+  transform:rotate(-1.4deg);
 }
-
-/* outline = see memories */
-a.btn.btn-outline{
+.btn-outline{
   background:#fdf1dd;
   color:#2b251f;
   border:1px solid #ccb089;
   transform:rotate(1.2deg);
 }
-
-/* glued tape on buttons */
-.btn::before{
+.tape-btn::before{
   content:"";
   position:absolute;
-  width:34px;
+  width:36px;
   height:12px;
   top:-7px;
   left:12px;
   transform:rotate(-14deg);
-  background:rgba(255,255,255,.5);
+  background:rgba(255,255,255,.52);
   border:1px solid rgba(140,120,90,.22);
   box-shadow:0 1px 1px rgba(0,0,0,.06);
-  pointer-events:none;
 }
+.btn:active{transform:translateY(1px)}
 
-/* slight worn effect */
-.btn::after{
-  content:"";
+/* album */
+.album{
+  position:relative;
+  z-index:1;
+  width:min(900px,100%);
+  margin:8px auto 20px;
+  padding:0 14px;
+}
+.timeline{
+  position:relative;
+  padding-left:28px;
+  margin-bottom:14px;
+}
+.timeline-line{
   position:absolute;
-  inset:0;
+  left:10px;
+  top:0;
+  bottom:0;
+  width:3px;
+  border-radius:3px;
+  background:linear-gradient(to bottom, #b28c61, #8a6948);
+  opacity:.58;
+}
+
+/* moments */
+.moment{
+  position:relative;
+  margin:0 0 18px;
+}
+.pin{
+  position:absolute;
+  left:-2px;
+  top:14px;
+  width:11px;
+  height:11px;
+  border-radius:50%;
+  background:var(--red);
+  box-shadow:0 0 0 2px rgba(255,255,255,.6);
+}
+.card{
+  border:1.5px solid #e1cba8;
+  border-radius:var(--radius);
+  padding:12px;
+  box-shadow:var(--shadow);
+}
+.crooked-a{transform:rotate(1.1deg)}
+.crooked-b{transform:rotate(-1.4deg)}
+.crooked-c{transform:rotate(.8deg)}
+
+.torn{
+  clip-path:polygon(
+    0 2%,3% 0,9% 2%,14% 0,21% 1.5%,28% 0,35% 2%,42% 0,49% 1.6%,56% 0,63% 2.1%,70% 0,
+    77% 1.7%,85% 0,92% 1.8%,100% 0,100% 98%,96% 100%,90% 98.6%,84% 100%,77% 98.8%,71% 100%,
+    63% 98.7%,56% 100%,49% 98.6%,42% 100%,35% 98.8%,28% 100%,21% 98.7%,14% 100%,7% 98.8%,0 100%
+  );
+}
+.date-tag{
+  display:inline-block;
+  margin:0 0 7px;
+  font-family:"Patrick Hand", cursive;
+  color:#fff;
+  background:#6f8eb8;
+  padding:3px 10px;
   border-radius:999px;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,.15);
-  pointer-events:none;
+  font-size:1rem;
 }
+.card h2{margin:.15rem 0 .35rem;font-size:1.2rem}
+.card p{margin:0 0 .75rem}
 
-/* hover/press handcrafted feel */
-.btn:hover{
-  filter:brightness(1.02);
-  transform:translateY(-1px) rotate(var(--btn-rot, 0deg));
+/* photo / tape */
+.photo-wrap{
+  position:relative;
+  margin:0;
+  background:#fff;
+  border:1px solid #ecdcc3;
+  padding:8px 8px 20px;
+  border-radius:4px;
+  box-shadow:0 5px 12px rgba(0,0,0,.10);
 }
-#musicBtn.btn:hover{ --btn-rot:-1.2deg; }
-a.btn.btn-outline:hover{ --btn-rot:1deg; }
-
-.btn:active{
-  transform:translateY(1px) rotate(var(--btn-rot-active, 0deg));
-  box-shadow:0 1px 0 rgba(0,0,0,.16), 0 4px 8px rgba(0,0,0,.10);
+.photo-wrap img{
+  width:100%;
+  display:block;
+  max-height:360px;
+  object-fit:cover;
 }
-#musicBtn.btn:active{ --btn-rot-active:-1deg; }
-a.btn.btn-outline:active{ --btn-rot-active:0.8deg; }
+.photo-wrap figcaption{
+  margin-top:7px;
+  font-family:"Patrick Hand", cursive;
+  color:#5a4c3f;
+  font-size:1.02rem;
+}
+.tilt-left{transform:rotate(-1.3deg)}
+.tilt-right{transform:rotate(1.5deg)}
 
-/* ensure timeline line never overlaps music board area */
+.tape{
+  position:absolute;
+  width:70px;
+  height:18px;
+  background:linear-gradient(to right, rgba(255,255,255,.58), rgba(245,236,220,.75), rgba(255,255,255,.58));
+  border:1px solid rgba(180,160,130,.24);
+  box-shadow:0 1px 1px rgba(0,0,0,.1);
+}
+.tape-top-left{top:-9px;left:10px;transform:rotate(-10deg)}
+.tape-top-right{top:-10px;right:9px;transform:rotate(9deg)}
+.tape-top-center{top:-9px;left:50%;transform:translateX(-50%) rotate(-2deg)}
+.tape-bottom-right{bottom:11px;right:-10px;transform:rotate(-18deg)}
+
+/* music board - outside timeline so line won't overlap */
 .music-board{
   position:relative;
   z-index:3;
+  margin-top:10px;
+  padding:12px;
+  border:1.5px solid #e6d4b4;
+  border-radius:14px;
+  box-shadow:var(--shadow);
+  transform:rotate(.5deg);
+}
+.music-board h3{margin:0 0 4px}
+.music-sub{margin:0 0 10px;color:#5d4f42;font-size:.92rem}
+.embed-grid{display:grid;gap:10px}
+.embed-card{
+  border:1px dashed #d8be97;
+  border-radius:12px;
+  padding:9px;
+}
+.embed-card h4{margin:0 0 8px;font-size:.96rem}
+
+/* footer */
+.footer{
+  text-align:center;
+  color:#5f5244;
+  font-size:.9rem;
+  padding:8px 10px 20px;
+  position:relative;
+  z-index:1;
 }
 
-/* mobile tuning */
-@media (max-width:420px){
-  .stats{ gap:8px; }
-  .stat{ padding:9px 10px; }
-  .stat span{ font-size:1.3rem; }
-  .btn{ padding:9px 12px; font-size:.88rem; }
+/* responsive */
+@media (min-width:640px){
+  .hero-note{padding:22px}
+  h1{font-size:2.45rem}
+  .album{padding:0 18px}
+  .timeline{padding-left:34px}
+  .timeline-line{left:14px}
+  .pin{left:1px}
+}
+@media (min-width:900px){
+  .album{width:min(960px,100%)}
 }
