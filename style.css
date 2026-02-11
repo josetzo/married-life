@@ -26,7 +26,11 @@ body {
   pointer-events: none;
   z-index: 10;
   opacity: 0.2;
-  background-image: url('https://www.transparenttextures.com'); /* Textura real */
+  background-image:
+    radial-gradient(rgba(0,0,0,0.06) 0.6px, transparent 0.6px),
+    radial-gradient(rgba(255,255,255,0.25) 0.8px, transparent 0.8px);
+  background-size: 3px 3px, 5px 5px;
+  mix-blend-mode: multiply;
 }
 
 /* 2. Header / Hero */
@@ -41,6 +45,29 @@ body {
   box-shadow: var(--shadow);
   transform: rotate(-1deg);
   border-radius: 2px;
+  position: relative;
+}
+
+/* detalle “pegado” en hero */
+.hero-note::before,
+.hero-note::after {
+  content: "";
+  position: absolute;
+  width: 58px;
+  height: 18px;
+  background: rgba(255,255,255,0.45);
+  border: 1px solid rgba(130,110,80,0.18);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+}
+.hero-note::before {
+  top: -9px;
+  left: 12px;
+  transform: rotate(-11deg);
+}
+.hero-note::after {
+  top: -10px;
+  right: 16px;
+  transform: rotate(9deg);
 }
 
 /* 3. Timeline y Cards Adaptadas */
@@ -64,6 +91,27 @@ body {
   width: 4px;
   background: rgba(139, 107, 74, 0.3);
   border-radius: 10px;
+  transform: rotate(0.6deg);
+  filter: blur(0.1px);
+}
+
+/* variación “hecha a mano” de línea */
+.timeline-line::before,
+.timeline-line::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+}
+.timeline-line::before {
+  left: -1px;
+  background: rgba(139, 107, 74, 0.16);
+  transform: rotate(-1.3deg);
+}
+.timeline-line::after {
+  left: 1px;
+  background: rgba(139, 107, 74, 0.12);
+  transform: rotate(1.1deg);
 }
 
 .moment {
@@ -71,22 +119,58 @@ body {
   position: relative;
 }
 
+/* Chincheta / pin opcional si existe en HTML */
+.pin {
+  position: absolute;
+  left: -1px;
+  top: 12px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #b84037;
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.55);
+}
+
 .card {
   position: relative;
   padding: 15px;
-  transition: transform 0.3s;
+  transition: transform 0.25s ease;
+  box-shadow: var(--shadow);
+  border-radius: 3px;
+  transform-origin: 8% 10%;
 }
 
 /* Colores de parches */
 .patch-cream { background: #fffcf2; }
-.patch-blue { background: #eef6ff; }
-.patch-rose { background: #fff0f3; }
-.patch-sand { background: #fdf9f3; }
+.patch-blue  { background: #eef6ff; }
+.patch-rose  { background: #fff0f3; }
+.patch-sand  { background: #fdf9f3; }
 
 /* Efecto de cosido */
 .sewn {
   border: 1.5px dashed rgba(0,0,0,0.2);
   outline: 4px solid transparent;
+  position: relative;
+}
+
+/* segunda costura irregular interna */
+.sewn::after {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 1px dashed rgba(110, 85, 55, 0.28);
+  pointer-events: none;
+}
+
+/* bordes imperfectos “cortados a mano” */
+.torn {
+  clip-path: polygon(
+    0 2%, 3% 0, 9% 2%, 14% 0, 21% 1.5%, 28% 0, 35% 2%, 42% 0, 49% 1.6%, 56% 0,
+    63% 2.1%, 70% 0, 77% 1.7%, 85% 0, 92% 1.8%, 100% 0,
+    100% 98%, 96% 100%, 90% 98.6%, 84% 100%, 77% 98.8%, 71% 100%, 63% 98.7%,
+    56% 100%, 49% 98.6%, 42% 100%, 35% 98.8%, 28% 100%, 21% 98.7%, 14% 100%,
+    7% 98.8%, 0 100%
+  );
 }
 
 /* 4. Fotos tipo Polaroid */
@@ -96,6 +180,7 @@ body {
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   margin: 15px 0;
   position: relative;
+  border: 1px solid rgba(0,0,0,0.07);
 }
 
 .photo-wrap img {
@@ -111,6 +196,10 @@ body {
   font-size: 1.2rem;
 }
 
+/* inclinación manual de fotos */
+.tilt-left  { transform: rotate(-1.6deg); }
+.tilt-right { transform: rotate(1.8deg); }
+
 /* 5. Cintas Adhesivas (Washi Tape) */
 .tape {
   position: absolute;
@@ -120,19 +209,68 @@ body {
   box-shadow: 1px 1px 2px rgba(0,0,0,0.05);
   backdrop-filter: blur(1px);
   z-index: 5;
+  border: 1px solid rgba(120,100,70,0.2);
 }
 
-.tape-top-left { top: -5px; left: -15px; transform: rotate(-30deg); background: rgba(210, 180, 140, 0.4); }
-.tape-top-right { top: -5px; right: -15px; transform: rotate(35deg); background: rgba(173, 216, 230, 0.4); }
-.tape-top-center { top: -10px; left: 50%; transform: translateX(-50%) rotate(2deg); width: 80px; }
+.tape-top-left {
+  top: -5px;
+  left: -15px;
+  transform: rotate(-30deg);
+  background: rgba(210, 180, 140, 0.4);
+}
+.tape-top-right {
+  top: -5px;
+  right: -15px;
+  transform: rotate(35deg);
+  background: rgba(173, 216, 230, 0.4);
+}
+.tape-top-center {
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(2deg);
+  width: 80px;
+}
 
-/* 6. Rotaciones aleatorias para móviles */
-.moment:nth-child(odd) .card { transform: rotate(1deg); }
-.moment:nth-child(even) .card { transform: rotate(-1deg); }
+/* cinta extra opcional */
+.tape-bottom-right {
+  bottom: 6px;
+  right: -10px;
+  transform: rotate(-18deg);
+  background: rgba(255, 228, 181, 0.45);
+}
+
+/* 6. Rotaciones “mal pegado” por bloque */
+.moment:nth-child(odd) .card  { transform: rotate(1.2deg) translateX(1px); }
+.moment:nth-child(even) .card { transform: rotate(-1.4deg) translateX(-1px); }
+
+/* más variación no uniforme */
+.moment:nth-child(3n) .card   { transform: rotate(0.7deg) translateX(2px); }
+.moment:nth-child(4n) .card   { transform: rotate(-1.9deg) translateX(-2px); }
+
+/* micro-imperfección al pasar dedo/mouse */
+.moment .card:hover {
+  transform: rotate(calc(var(--r, 0deg) + 0.3deg)) translateY(-1px);
+}
 
 /* Ajuste para el reproductor de música */
 .music-board {
   margin-top: 30px;
   padding: 15px;
   transform: rotate(0.5deg);
+  position: relative;
+  z-index: 2; /* evita que la línea visualmente “invada” esta sección */
+}
+
+/* también cosido y parche en música */
+.music-board.sewn {
+  background: #fff8ea;
+  border: 1.5px dashed rgba(0,0,0,0.2);
+}
+
+/* Mejora legibilidad móvil */
+@media (max-width: 420px){
+  .album { padding: 8px; }
+  .card { padding: 12px; }
+  .photo-wrap { padding: 8px 8px 22px; }
+  .tape { width: 52px; height: 17px; }
 }
