@@ -1,11 +1,8 @@
-// Ajusta fecha real
-const relationshipStart = new Date("2024-02-14");
-
+const relationshipStart = new Date("2024-10-05");
 const daysEl = document.getElementById("daysTogether");
 const monthsEl = document.getElementById("monthsTogether");
 const musicBtn = document.getElementById("musicBtn");
 const bgMusic = document.getElementById("bgMusic");
-
 function updateCounters() {
   const today = new Date();
   const diff = today - relationshipStart;
@@ -20,8 +17,6 @@ function updateCounters() {
   monthsEl.textContent = Math.max(0, months).toLocaleString("es-CL");
 }
 updateCounters();
-
-// MP3 local
 let isPlaying = false;
 musicBtn.addEventListener("click", async () => {
   try {
