@@ -2,310 +2,127 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Our Adventure Book</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nuestra historia</title>
 
-  <!-- Fuentes manuscritas -->
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&family=Patrick+Hand&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --bg: #f6e7cf;
-      --paper: #fffaf0;
-      --ink: #2a241e;
-      --shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: "Nunito", sans-serif;
-      background: var(--bg);
-      color: var(--ink);
-    }
-
-    /* Fondo tipo cartulina */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
-      opacity: 0.25;
-      pointer-events: none;
-    }
-
-    /* Header */
-    header {
-      padding: 24px 16px;
-      text-align: center;
-    }
-
-    header .note {
-      background: var(--paper);
-      padding: 20px;
-      border: 2px dashed rgba(0,0,0,0.2);
-      box-shadow: var(--shadow);
-      transform: rotate(-1deg);
-      max-width: 500px;
-      margin: 0 auto;
-      font-family: "Patrick Hand", cursive;
-      font-size: 1.4rem;
-    }
-
-    /* Album */
-    .album {
-      max-width: 520px;
-      margin: 0 auto;
-      padding: 20px 12px 60px;
-      position: relative;
-    }
-
-    /* Timeline */
-    .timeline {
-      position: relative;
-      padding-left: 26px;
-    }
-
-    .timeline::before {
-      content: "";
-      position: absolute;
-      left: 10px;
-      top: 0;
-      bottom: 0;
-      width: 4px;
-      background: rgba(0,0,0,0.2);
-      border-radius: 10px;
-    }
-
-    /* Evento */
-    .moment {
-      margin-bottom: 50px;
-      position: relative;
-    }
-
-    .card {
-      background: var(--paper);
-      padding: 16px;
-      box-shadow: var(--shadow);
-      border: 2px dashed rgba(0,0,0,0.25);
-      transform-origin: top left;
-    }
-
-    .moment:nth-child(odd) .card { transform: rotate(1.2deg); }
-    .moment:nth-child(even) .card { transform: rotate(-1deg); }
-
-    /* Fecha cosida */
-    .date {
-      font-family: "Patrick Hand", cursive;
-      background: #fdf2d0;
-      display: inline-block;
-      padding: 4px 10px;
-      border: 1.5px dashed rgba(0,0,0,0.3);
-      margin-bottom: 10px;
-    }
-
-    h3 {
-      margin: 8px 0 10px;
-      font-family: "Patrick Hand", cursive;
-      font-size: 1.3rem;
-    }
-
-    /* Foto tipo polaroid */
-    figure {
-      background: white;
-      padding: 10px 10px 24px;
-      margin: 12px 0;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-      transform: rotate(-0.8deg);
-      position: relative;
-    }
-
-    figure img {
-      width: 100%;
-      display: block;
-      filter: sepia(0.15);
-    }
-
-    figcaption {
-      text-align: center;
-      font-family: "Patrick Hand", cursive;
-      margin-top: 8px;
-    }
-
-    /* Cinta adhesiva */
-    .tape {
-      position: absolute;
-      top: -8px;
-      left: 50%;
-      transform: translateX(-50%) rotate(2deg);
-      width: 80px;
-      height: 18px;
-      background: rgba(255,255,255,0.5);
-      box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-    }
-
-    /* Botones */
-    .buttons {
-      display: flex;
-      gap: 10px;
-      margin-top: 12px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      background: #eef6ff;
-      padding: 8px 14px;
-      font-family: "Patrick Hand", cursive;
-      border: 2px dashed rgba(0,0,0,0.3);
-      box-shadow: var(--shadow);
-      transform: rotate(-2deg);
-      cursor: pointer;
-    }
-
-    .btn:nth-child(2) { transform: rotate(1.5deg); background: #fff0f3; }
-
-    /* Música */
-    .music {
-      margin-top: 30px;
-      padding: 16px;
-      background: #fff7e6;
-      border: 2px dashed rgba(0,0,0,0.25);
-      box-shadow: var(--shadow);
-      transform: rotate(0.5deg);
-    }
-
-    audio {
-      width: 100%;
-      margin-top: 10px;
-    }
-
-    /* Gatos */
-    .cats {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 8px;
-      font-family: "Patrick Hand", cursive;
-    }
-
-    .cat {
-      background: #fdf2d0;
-      padding: 6px;
-      border: 1.5px dashed rgba(0,0,0,0.3);
-      text-align: center;
-      transform: rotate(-1deg);
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+<div class="paper-grain"></div>
 
-<header>
-  <div class="note">
-    Our Adventure Book
-  </div>
+<header class="hero">
+  <h1>Nuestra historia</h1>
+
+  <!-- INICIO RELACIÓN -->
+  <section class="relationship-start sewn patch-cream">
+    <span class="label">Inicio de nuestra historia</span>
+    <time datetime="2024-10-05">05 de octubre de 2024</time>
+    <p>El día en que todo empezó a tomar forma.</p>
+    <span class="tape tape-top-center"></span>
+  </section>
+
+  <!-- CONTADORES -->
+  <section class="counters">
+    <div class="counter sewn patch-blue">
+      <span id="monthsTogether">0</span>
+      <small>meses juntos</small>
+    </div>
+    <div class="counter sewn patch-rose">
+      <span id="daysTogether">0</span>
+      <small>días juntos</small>
+    </div>
+  </section>
+
+  <!-- MUSICA -->
+  <button id="musicBtn" class="music-btn sewn patch-sand">
+    Reproducir musica
+  </button>
+  <audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
 </header>
 
 <main class="album">
-  <section class="timeline">
+  <div class="timeline">
+    <div class="timeline-line"></div>
 
-    <!-- 1 -->
-    <div class="moment">
-      <div class="card">
-        <div class="date">Primer encuentro</div>
-        <h3>Cuando nos vimos por primera vez</h3>
-        <figure>
-          <div class="tape"></div>
-          <img src="img/primer-dia.jpg" alt="">
+    <!-- EVENTO 1 -->
+    <article class="moment">
+      <div class="card sewn patch-cream">
+        <h3>La primera vez que nos vimos</h3>
+        <figure class="photo-wrap">
+          <span class="tape tape-top-left"></span>
+          <img src="img/primera-vez.jpg" alt="">
           <figcaption>Todo empezó aquí</figcaption>
         </figure>
       </div>
-    </div>
+    </article>
 
-    <!-- 2 -->
-    <div class="moment">
-      <div class="card">
-        <div class="date">Inicio</div>
+    <!-- EVENTO 2 -->
+    <article class="moment">
+      <div class="card sewn patch-blue">
         <h3>Cuando empezamos a pololear</h3>
-        <figure>
-          <div class="tape"></div>
+        <figure class="photo-wrap">
+          <span class="tape tape-top-right"></span>
           <img src="img/pololeo.jpg" alt="">
-          <figcaption>Nuestro sí</figcaption>
         </figure>
       </div>
-    </div>
+    </article>
 
-    <!-- 3 -->
-    <div class="moment">
-      <div class="card">
-        <div class="date">14 de febrero</div>
-        <h3>Nuestro primer San Valentín</h3>
-        <figure>
-          <div class="tape"></div>
-          <img src="img/san-valentin.jpg" alt="">
-          <figcaption>Juntos</figcaption>
+    <!-- EVENTO 3 -->
+    <article class="moment">
+      <div class="card sewn patch-rose">
+        <h3>Nuestro primer 14 juntos</h3>
+        <figure class="photo-wrap">
+          <span class="tape tape-top-left"></span>
+          <img src="img/primer-14.jpg" alt="">
         </figure>
       </div>
-    </div>
+    </article>
 
-    <!-- 4 -->
-    <div class="moment">
-      <div class="card">
-        <div class="date">Aventura</div>
+    <!-- EVENTO 4 -->
+    <article class="moment">
+      <div class="card sewn patch-sand">
         <h3>Buin Zoo</h3>
-        <figure>
-          <div class="tape"></div>
-          <img src="img/buinzoo.jpg" alt="">
-          <figcaption>Un día distinto</figcaption>
+        <figure class="photo-wrap">
+          <span class="tape tape-top-right"></span>
+          <img src="img/buin-zoo.jpg" alt="">
         </figure>
       </div>
-    </div>
+    </article>
 
-    <!-- 5 -->
-    <div class="moment">
-      <div class="card">
-        <div class="date">Viaje</div>
-        <h3>Nuestro viaje juntos</h3>
-        <figure>
-          <div class="tape"></div>
+    <!-- EVENTO 5 -->
+    <article class="moment">
+      <div class="card sewn patch-blue">
+        <h3>El viaje</h3>
+        <figure class="photo-wrap">
+          <span class="tape tape-top-left"></span>
           <img src="img/viaje.jpg" alt="">
-          <figcaption>Recuerdos</figcaption>
         </figure>
       </div>
-    </div>
+    </article>
 
-    <!-- 6 -->
-    <div class="moment">
-      <div class="card">
-        <div class="date">Nuestra familia</div>
-        <h3>Los 5 gatos</h3>
-        <figure>
-          <div class="tape"></div>
+    <!-- EVENTO 6 -->
+    <article class="moment">
+      <div class="card sewn patch-cream">
+        <h3>Nuestros 5 gatos</h3>
+        <figure class="photo-wrap">
+          <span class="tape tape-top-center"></span>
           <img src="img/gatos.jpg" alt="">
-          <figcaption>Siempre con nosotros</figcaption>
+          <figcaption>
+            Grogu · Kishiro · Haru · Momo · Platanito
+          </figcaption>
         </figure>
-
-        <div class="cats">
-          <div class="cat">Grogu</div>
-          <div class="cat">Kishiro</div>
-          <div class="cat">Haru</div>
-          <div class="cat">Momo</div>
-          <div class="cat">Platanito</div>
-        </div>
       </div>
-    </div>
+    </article>
 
-  </section>
-
-  <!-- Música -->
-  <div class="music">
-    <h3>Nuestra canción</h3>
-    <audio controls>
-      <source src="music/cancion.mp3" type="audio/mpeg">
-    </audio>
   </div>
-
 </main>
 
+<script src="script.js"></script>
 </body>
 </html>
