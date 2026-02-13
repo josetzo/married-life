@@ -1,127 +1,172 @@
 :root {
-  --bg: #f6e7cf;
-  --ink: #2a241e;
-  --brown: #8b6b4a;
-  --shadow: 0 4px 12px rgba(0,0,0,0.15);
+  --bg:#f6e7cf;
+  --paper:#fffaf0;
+  --ink:#2a241e;
+  --red:#b84037;
+  --blue:#3f6ea8;
+  --shadow:0 4px 12px rgba(0,0,0,.15);
 }
 
-* { box-sizing: border-box; }
+*{box-sizing:border-box}
 
-body {
-  margin: 0;
-  font-family: "Nunito", sans-serif;
-  background: var(--bg);
-  color: var(--ink);
+body{
+  margin:0;
+  font-family:"Nunito",sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  overflow-x:hidden;
 }
 
-/* Textura */
-.paper-grain {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.15;
+/* textura */
+.paper-grain{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:.18;
+  background-image:url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+  z-index:1;
 }
 
-/* Hero */
-.hero {
-  padding: 20px;
+/* HERO */
+.hero{
+  padding:20px 15px;
+  text-align:center;
+  position:relative;
+  z-index:2;
 }
 
-.hero-note {
-  background: #fffaf0;
-  padding: 20px;
-  border: 2px dashed rgba(0,0,0,0.15);
-  box-shadow: var(--shadow);
-  transform: rotate(-1deg);
+h1{
+  margin-bottom:10px;
+  font-weight:800;
 }
 
-/* Album */
-.album {
-  max-width: 520px;
-  margin: 0 auto;
-  padding: 10px;
+/* inicio */
+.relationship-start{
+  max-width:500px;
+  margin:15px auto;
+  padding:15px;
+  transform:rotate(-.6deg);
+  position:relative;
 }
 
-/* Timeline */
-.timeline {
-  position: relative;
-  padding-left: 30px;
+.relationship-start .label{
+  font-size:.75rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
 }
 
-.timeline-line {
-  position: absolute;
-  left: 10px;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  background: rgba(139,107,74,0.3);
-  border-radius: 10px;
+.relationship-start time{
+  display:block;
+  font-size:1.4rem;
+  font-weight:800;
+  color:var(--red);
 }
 
-/* Eventos */
-.moment {
-  margin-bottom: 50px;
-  position: relative;
+/* contadores */
+.counters{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin:20px 0;
 }
 
-.date {
-  display: inline-block;
-  font-family: "Patrick Hand", cursive;
-  background: #fff;
-  padding: 4px 10px;
-  margin-bottom: 8px;
+.counter{
+  padding:12px;
+  min-width:110px;
+  transform:rotate(.8deg);
 }
 
-/* Cards */
-.card {
-  padding: 15px;
-  box-shadow: var(--shadow);
+.counter span{
+  font-size:1.6rem;
+  font-weight:800;
+  display:block;
 }
 
-/* Parches */
-.patch-cream { background: #fffcf2; }
-.patch-blue { background: #eef6ff; }
-.patch-rose { background: #fff0f3; }
-.patch-sand { background: #fdf9f3; }
-
-/* Costura */
-.sewn {
-  border: 1.5px dashed rgba(0,0,0,0.25);
+/* botones */
+.music-btn{
+  margin-top:10px;
+  padding:10px 16px;
+  border:none;
+  font-family:inherit;
+  cursor:pointer;
+  transform:rotate(-1deg);
 }
 
-/* Polaroid */
-.photo-wrap {
-  background: white;
-  padding: 10px 10px 25px;
-  margin-bottom: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  position: relative;
+/* album */
+.album{
+  max-width:500px;
+  margin:auto;
+  padding:10px;
 }
 
-.photo-wrap img {
-  width: 100%;
-  display: block;
+.timeline{
+  position:relative;
+  padding-left:20px;
 }
 
-.photo-wrap figcaption {
-  text-align: center;
-  font-family: "Patrick Hand", cursive;
-  margin-top: 10px;
+.timeline-line{
+  position:absolute;
+  left:6px;
+  top:0;
+  bottom:0;
+  width:4px;
+  background:rgba(0,0,0,.2);
+  border-radius:6px;
 }
 
-/* Cintas */
-.tape {
-  position: absolute;
-  width: 60px;
-  height: 18px;
-  background: rgba(210,180,140,0.4);
-  top: -8px;
+/* eventos */
+.moment{margin-bottom:40px}
+
+.card{
+  padding:15px;
+  transform:rotate(1deg);
 }
 
-.tape-top-left { left: -10px; transform: rotate(-25deg); }
-.tape-top-right { right: -10px; transform: rotate(25deg); }
-.tape-top-center { left: 50%; transform: translateX(-50%) rotate(3deg); }
+.moment:nth-child(even) .card{
+  transform:rotate(-1deg);
+}
 
-/* Imperfecciones controladas */
-.moment:nth-child(odd) .card { transform: rotate(1deg); }
-.moment:nth-child(even) .card { transform: rotate(-1deg); }
+/* parches */
+.patch-cream{background:#fffcf2}
+.patch-blue{background:#eef6ff}
+.patch-rose{background:#fff0f3}
+.patch-sand{background:#fdf9f3}
+
+/* cosido */
+.sewn{
+  border:1.5px dashed rgba(0,0,0,.25);
+  box-shadow:var(--shadow);
+}
+
+/* fotos */
+.photo-wrap{
+  background:white;
+  padding:10px 10px 25px;
+  margin-top:10px;
+  position:relative;
+}
+
+.photo-wrap img{
+  width:100%;
+  display:block;
+  filter:sepia(.15);
+}
+
+.photo-wrap figcaption{
+  font-family:"Patrick Hand",cursive;
+  text-align:center;
+  margin-top:8px;
+}
+
+/* cintas */
+.tape{
+  position:absolute;
+  width:60px;
+  height:18px;
+  background:rgba(255,255,255,.6);
+  z-index:5;
+}
+
+.tape-top-left{top:-6px;left:-14px;transform:rotate(-28deg)}
+.tape-top-right{top:-6px;right:-14px;transform:rotate(30deg)}
+.tape-top-center{top:-10px;left:50%;transform:translateX(-50%) rotate(2deg)}
